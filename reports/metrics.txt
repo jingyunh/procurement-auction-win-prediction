@@ -1,21 +1,18 @@
-Win prediction (PM auctions)
+=== Win prediction (PM) ===
+Rows after label cleaning: 3636
 
-Data rows used after label cleaning: 3636
-Group split by: jpnumber
+Train size: 2708   Test size: 928
 
-Logit baseline
-  features: ['is_large_firm', 'lengest', 'lnumb']
-  test_auc: 0.6601
-  test_brier: 0.1860
+Logit baseline:
+  CV AUC mean=0.6504, std=0.0150
+  Test AUC=0.6598, Brier=0.1860
 
-Logit full
-  features: ['is_large_firm', 'lengest', 'lnumb', 'util', 'cross_type_count']
-  test_auc: 0.6664
-  test_brier: 0.1856
-  delta_auc_vs_baseline: +0.0063
+Logit full:
+  CV AUC mean=0.6555, std=0.0142
+  Test AUC=0.6663, Brier=0.1856
+  ΔAUC(full-baseline)=+0.0065
 
-Tree (HistGB) full numeric
-  numeric_features: ['is_large_firm', 'lengest', 'lnumb', 'util', 'cross_type_count']
-  test_auc: 0.6438
-  test_brier: 0.1949
-  delta_auc_vs_logit_full: -0.0226
+Tree (HistGB) on full features:
+  CV AUC mean=0.6463, std=0.0092
+  Test AUC=0.6256, Brier=0.2001
+  ΔAUC(tree-logit_full)=-0.0408
