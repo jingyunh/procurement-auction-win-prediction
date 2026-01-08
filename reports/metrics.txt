@@ -1,0 +1,21 @@
+Win prediction (PM auctions)
+
+Data rows used after label cleaning: 3636
+Group split by: jpnumber
+
+Logit baseline
+  features: ['is_large_firm', 'lengest', 'lnumb']
+  test_auc: 0.6601
+  test_brier: 0.1860
+
+Logit full
+  features: ['is_large_firm', 'lengest', 'lnumb', 'util', 'cross_type_count']
+  test_auc: 0.6664
+  test_brier: 0.1856
+  delta_auc_vs_baseline: +0.0063
+
+Tree (HistGB) full numeric
+  numeric_features: ['is_large_firm', 'lengest', 'lnumb', 'util', 'cross_type_count']
+  test_auc: 0.6438
+  test_brier: 0.1949
+  delta_auc_vs_logit_full: -0.0226
